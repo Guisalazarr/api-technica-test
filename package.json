@@ -5,6 +5,7 @@
     "main": "index.js",
     "scripts": {
         "dev": "ts-node-dev --respawn --transpile-only --cls ./src/index.ts",
+        "postinstall": "tsc",
         "build": "tsc",
         "start": "node ./build/index.js",
         "dev:debug": "ts-node-dev --inspect --respawn --cls --transpile-only ./src/index.ts",
@@ -35,7 +36,7 @@
         "cors": "^2.8.5",
         "cpf-cnpj-validator": "^1.0.3",
         "dotenv": "^16.4.7",
-        "express": "^4.18.2",
+        "express": "^4.21.2",
         "jsonwebtoken": "^9.0.2",
         "pg": "^8.13.1",
         "reflect-metadata": "^0.2.2",
