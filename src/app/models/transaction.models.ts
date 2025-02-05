@@ -3,8 +3,8 @@ import { TransactionEntity } from '../shared/database/entities/transaction.entit
 import { User } from './user.model';
 
 export enum TransactionType {
-    Income = 'I',
-    Outcome = 'O',
+    Income = 'Entrada',
+    Outcome = 'Saída',
 }
 
 export class Transaction {
