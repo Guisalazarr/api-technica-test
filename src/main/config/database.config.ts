@@ -1,9 +1,17 @@
-import * as dotenv from 'dotenv';
 import { DataSource } from 'typeorm';
+import * as dotenv from 'dotenv';
 
 dotenv.config();
 
-const config = new DataSource({
+let entities = ['src/app/shared/database/entities/**/*.ts'];
+let migrations = ['src/app/shared/database/migrations/**/*.ts'];
+
+if (process.env.DB_ENV === 'production') {
+    entities = ['build/app/shared/database/entities/**/*.js'];
+    migrations = ['build/app/shared/database/migrations/**/*.js'];
+}
+
+let config = new DataSource({
     type: 'postgres',
     port: 5432,
     host: process.env.DB_HOST,
@@ -15,8 +23,8 @@ const config = new DataSource({
     },
     synchronize: false,
     schema: 'public',
-    entities: ['src/app/shared/database/entities/**/*.ts'],
-    migrations: ['src/app/shared/database/migrations/**/*.ts'],
+    entities: entities,
+    migrations: migrations,
 });
 
 export default config;
