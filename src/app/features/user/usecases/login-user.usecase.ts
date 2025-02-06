@@ -25,6 +25,7 @@ export class LoginUserUsecase {
         const token = new JwtService().createToken(user.toJson());
         return Return.success('Usuário logado com sucesso', {
             id: user.id,
+            name: user.name,
             token: token,
         });
     }
