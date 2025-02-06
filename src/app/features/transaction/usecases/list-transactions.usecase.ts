@@ -9,7 +9,7 @@ import { sumTransactionsValues } from '../util/sum.transactions';
 
 export interface ListTransactionsParams {
     userId: string;
-    type?: TransactionType;
+    title?: string;
 }
 
 export class ListTransactionUseCase {
@@ -27,7 +27,7 @@ export class ListTransactionUseCase {
 
         let transactions = await this.transactionRepository.list({
             userId: params.userId,
-            type: params.type,
+            title: params.title,
         });
 
         let income = sumTransactionsValues(

@@ -11,7 +11,7 @@ export class TransactionRepository {
         const result = await this.repository.find({
             where: {
                 idUser: params.userId,
-                type: params.type,
+                title: params.title,
             },
             relations: {
                 user: true,
